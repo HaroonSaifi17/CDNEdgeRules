@@ -1,0 +1,15 @@
+<div class="bg-white rounded-lg ml-2 min-h-full p-10">
+  @if (tabParam) {
+  @if (activeRules$ | async; as activeRules) {
+  @for (activeRule of activeRules; track activeRule) {
+  @if ((activeRule.name | snakeCase) == tabParam) {
+  <h2 class="font-semibold ">
+    {{ activeRule.name }}
+  </h2>
+  }
+  }
+  }
+  } @else {
+  <p>Error, Invalid rule</p>
+  }
+</div>

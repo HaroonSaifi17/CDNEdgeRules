@@ -1,0 +1,12 @@
+@if (activeRules$ | async; as activeRules) {
+<div class="bg-white rounded-lg min-w-48 p-6">
+  <h2 class="font-semibold text-center mb-8 text-lg">Active Rules</h2>
+  <ul class="flex flex-col gap-3">
+    @for (item of activeRules; track item) {
+    <li>
+      <a [routerLink]="['/edgerules', item.name | snakeCase]" routerLinkActive="active">{{ item.name }}</a>
+    </li>
+    }
+  </ul>
+</div>
+}
