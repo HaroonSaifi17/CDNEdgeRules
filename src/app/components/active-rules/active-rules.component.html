@@ -1,15 +1,23 @@
 <div class="bg-white rounded-lg ml-2 min-h-full p-10">
   @if (tabParam) {
-  @if (activeRules$ | async; as activeRules) {
-  @for (activeRule of activeRules; track activeRule) {
-  @if ((activeRule.name | snakeCase) == tabParam) {
-  <h2 class="font-semibold ">
-    {{ activeRule.name }}
-  </h2>
-  }
-  }
-  }
+    @if (activeRule) {
+      <div class="flex gap-4 items-center">
+        <h2 class="font-semibold text-nowrap text-xl">Rule Name</h2>
+        <input
+          type="text"
+          [(ngModel)]="activeRule.name"
+          class="flex-1 border border-gray-300 font-semibold text-xl rounded-sm p-1 px-3 inline-block w-full"
+        />
+        <button
+          pRipple
+          type="button"
+          class="text-white bg-[#59a52c] hover:opacity-95 font-medium text-sm px-6 py-2"
+        >
+          Save
+        </button>
+      </div>
+    }
   } @else {
-  <p>Error, Invalid rule</p>
+    <p>Error, Invalid rule</p>
   }
 </div>

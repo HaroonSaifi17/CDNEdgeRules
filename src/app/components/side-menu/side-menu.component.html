@@ -1,12 +1,42 @@
 @if (activeRules$ | async; as activeRules) {
-<div class="bg-white rounded-lg min-w-48 p-6">
-  <h2 class="font-semibold text-center mb-8 text-lg">Active Rules</h2>
-  <ul class="flex flex-col gap-3">
-    @for (item of activeRules; track item) {
-    <li>
-      <a [routerLink]="['/edgerules', item.name | snakeCase]" routerLinkActive="active">{{ item.name }}</a>
-    </li>
-    }
-  </ul>
-</div>
+  <div class="bg-white rounded-lg  p-6">
+    <h2 class="font-semibold text-center min-w-48 mb-8 text-lg">Active Rules</h2>
+    <ul class="flex flex-col gap-3">
+      @for (item of activeRules; track item) {
+        <li>
+          <a
+            [routerLink]="['/edgerules', item.name | snakeCase]"
+            routerLinkActive="active"
+        class="flex items-center gap-1"
+            >
+
+         <span routerLinkActive="active1" class="w-2 h-2 m-1 border-black border inline-block rounded-full"> </span>
+
+        {{ item.name }}</a
+          >
+        </li>
+      }
+    </ul>
+  </div>
 }
+<div class="bg-white mt-2 rounded-lg p-2 py-4">
+  <h2 class="font-semibold text-center mb-3 text-lg">Create New Rule</h2>
+  <div class="flex gap-2 p-2">
+    <button
+      pRipple
+      type="button"
+      class="text-white bg-blue-600 hover:bg-blue-700 flex-1 font-medium rounded-lg text-xs px-5 py-2.5"
+
+    >
+      Add
+    </button>
+    <button
+      pRipple
+      type="button"
+      class="text-white nowrap  bg-red-600 hover:bg-red-700 font-medium flex-1 rounded-lg text-xs px-5 py-2.5"
+    >
+      <i class=" pi pi-trash"></i>
+      Delete
+    </button>
+  </div>
+</div>
